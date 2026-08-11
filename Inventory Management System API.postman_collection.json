@@ -1,0 +1,547 @@
+{
+	"info": {
+		"_postman_id": "0dbd4119-bedf-4824-84fd-126f06d19b75",
+		"name": "Inventory Management System API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "52750490",
+		"_collection_link": "https://mandloipankaj2000-7001917.postman.co/workspace/mandloipankaj2000's-Workspace~6b3c9a6e-c23f-4001-8d6e-15352add49c6/collection/52750490-0dbd4119-bedf-4824-84fd-126f06d19b75?action=share&source=collection_link&creator=52750490"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Pankaj Mandloi\",\r\n    \"email\": \"mandloipankaj2000@gmail.com\",\r\n    \"password\": \"Test@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mandloipankaj200@gmail.com\",\r\n    \"password\": \"Test@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNzlmNDJjODQ5NjdkNWE1MGQwNWExZCIsImlhdCI6MTc4NjQ0MTMyMywiZXhwIjoxNzg3MDQ2MTIzfQ.ATwhhqMwUuA6f3SU6QwqP1eq1rCDDgarY6svBeBvSxs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mandloipankaj200@gmail.com\",\r\n    \"password\": \"Test@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/me",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNzlmNDJjODQ5NjdkNWE1MGQwNWExZCIsImlhdCI6MTc4NjQ0MTMyMywiZXhwIjoxNzg3MDQ2MTIzfQ.ATwhhqMwUuA6f3SU6QwqP1eq1rCDDgarY6svBeBvSxs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mandloipankaj200@gmail.com\",\r\n    \"password\": \"Test@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/logout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"iPhone 13 Pro Max\",\r\n    \"sku\": \"PRD-352496-6843\",\r\n    \"category\": \"6a79f61c84967d5a50d05a1e\",\r\n    \"description\": \"Apple iPhone 13 Pro Max 256GB Space Black\",\r\n    \"quantity\": 50,\r\n    \"unitPrice\": 1139.99,\r\n    \"supplier\": \"Apple Inc.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products?page=1&limit=10&sortBy=name&sortOrder=asc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "name"
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/6a79fc09578b8b661dc8f3f0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"6a79fc09578b8b661dc8f3f0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"iPhone 13 Pro Max\",\r\n    \"quantity\": 60,\r\n    \"unitPrice\": 1099.99,\r\n    \"supplier\": \"Apple Inc.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products/6a7af117d5b814c8ca42a6ec",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"6a7af117d5b814c8ca42a6ec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/6a7af117d5b814c8ca42a6ec",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"6a7af117d5b814c8ca42a6ec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Dashboard Stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/stats/dashboard",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"stats",
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNzlmNDJjODQ5NjdkNWE1MGQwNWExZCIsImlhdCI6MTc4NjQ0MTMyMywiZXhwIjoxNzg3MDQ2MTIzfQ.ATwhhqMwUuA6f3SU6QwqP1eq1rCDDgarY6svBeBvSxs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Electronicssss\",\r\n    \"description\": \"All electronic devices and accessories\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categories/6a7aef83d5b814c8ca42a6eb",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories",
+								"6a7aef83d5b814c8ca42a6eb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Electronicssss\",\r\n    \"description\": \"All electronic devices, gadgets and accessories\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categories/6a7aef83d5b814c8ca42a6eb",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories",
+								"6a7aef83d5b814c8ca42a6eb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNzlmNDJjODQ5NjdkNWE1MGQwNWExZCIsImlhdCI6MTc4NjQ0MTMyMywiZXhwIjoxNzg3MDQ2MTIzfQ.ATwhhqMwUuA6f3SU6QwqP1eq1rCDDgarY6svBeBvSxs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categories/6a7aef83d5b814c8ca42a6eb",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories",
+								"6a7aef83d5b814c8ca42a6eb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "Increase Stock",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"6a79fa39dd2cb065dcbcb27d\",\r\n    \"quantity\": 10,\r\n    \"note\": \"New stock arrived from supplier\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/inventory/increase",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"inventory",
+								"increase"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reduce Stock",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"6a79fa39dd2cb065dcbcb27d\",\r\n    \"quantity\": 5,\r\n    \"note\": \"Sold to customer #1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/inventory/reduce",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"inventory",
+								"reduce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Stock History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/inventory/history/6a79fa39dd2cb065dcbcb27d?limit=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"inventory",
+								"history",
+								"6a79fa39dd2cb065dcbcb27d"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/inventory/transactions?page=1&limit=20",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"inventory",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
